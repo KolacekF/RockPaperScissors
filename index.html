@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Rock Paper Scissors!</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function pozadi_resize(){
+             document.getElementById("pozadi").style.width = window.innerWidth * 0.8 + "px";
+             document.getElementById("pozadi").style.height = window.innerHeight * 0.8 + "px";
+        }
+        function Inicialize(){
+            let pozadi = document.getElementById("pozadi");
+            //pozadi.style.background = "lightgrey";
+            pozadi.style.border = "5px solid black";
+            pozadi_resize();
+            //pozadi.style.width = "600px";
+            //pozadi.style.height = "600px";
+        }
+    </script>
+</head>
+<body onload="return; Inicialize()" onresize="pozadi_resize()">
+    <div id="wrapper_body">
+        <!--<input type="range" min="300" max="1000" onchange="document.getElementById('pozadi').style.width = this.value + 'px'">-->
+        <div id="pozadi" style="position: relative;"></div>
+        <div id="controls"></div>
+    </div>
+    <div id="popup_window">
+        <div>
+            <button onclick="document.getElementById('popup_window').style.display = 'none'">ZAVŘÍT</button>
+            <h1>Změna velikosti hrací plochy</h1>
+            <input type="range" min="50" max="1000" id="change_h_range" onchange="document.getElementById('pozadi').style.height = this.value + 'px'" orient="vertical">
+            <input type="range" min="50" max="1000" id="change_w_range" onchange="document.getElementById('pozadi').style.width = this.value + 'px'">
+        </div>
+    </div>
+    <script>Inicialize()</script>
+    <script src="element.js"></script>
+    <script src="controls.js"></script>
+    <script src="results.js"></script>
+</body>
+</html>
